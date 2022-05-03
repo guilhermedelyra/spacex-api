@@ -1,0 +1,7 @@
+/node_modules
+/coverage
+test-report.xml
+yarn-error.log
+src/lib/private_key
+aws_credentials.json
+credentials.json

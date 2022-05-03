@@ -1,0 +1,59 @@
+{
+  "name": "space-x_api",
+  "version": "1.0.0",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node --experimental-specifier-resolution=node src/server.js",
+    "dev": "nodemon --experimental-specifier-resolution=node src/server.js",
+    "test": "NODE_OPTIONS=--experimental-vm-modules NODE_ENV=test jest --watchAll",
+    "coverage": "rm -rf coverage/ node_modules/.cache/ && NODE_ENV=test jest --collect-coverage",
+    "lint:js": "eslint . --ext .js,.jsx",
+    "lint:js:fix": "npm run lint:js -- --fix"
+  },
+  "lint-staged": {
+    "src/**/*.js": [
+      "eslint . --fix"
+    ],
+    "src/*.js": [
+      "eslint . --fix"
+    ],
+    "__tests__/*.js": [
+      "eslint . --fix"
+    ],
+    "__tests__/**/*.js": [
+      "eslint . --fix"
+    ]
+  },
+  "dependencies": {
+    "axios": "^0.21.0",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "express-async-errors": "^3.1.1",
+    "jsonwebtoken": "^8.5.1",
+    "morgan": "^1.10.0",
+    "ytdl-core": "^4.11.0"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-eslint": "^10.1.0",
+    "babel-preset-env": "^1.7.0",
+    "eslint": "^7.12.1",
+    "eslint-config-airbnb-base": "^14.2.0",
+    "eslint-config-prettier": "^6.15.0",
+    "eslint-import-resolver-node": "^0.3.4",
+    "eslint-module-utils": "^2.6.0",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-jsx-a11y": "^6.4.1",
+    "eslint-plugin-prettier": "^3.1.4",
+    "husky": "^7.0.4",
+    "jest": "^26.6.1",
+    "jest-environment-node": "^26.6.1",
+    "jest-sonar-reporter": "^2.0.0",
+    "lint-staged": "^10.5.1",
+    "nodemon": "^2.0.6",
+    "prettier": "^2.1.2",
+    "supertest": "^6.0.0"
+  }
+}
