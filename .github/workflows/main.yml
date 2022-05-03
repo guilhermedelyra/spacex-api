@@ -16,12 +16,6 @@ jobs:
       - run: yarn
       - run: yarn lint:js:fix
       - run: yarn test --watchAll=false
-      - uses: amondnet/vercel-action@v20 #deploy
-        with:
-          vercel-token: ${{ secrets.VERCEL_TOKEN }} # Required
-          github-token: ${{ secrets.GITHUB_TOKEN }} #Optional
-          vercel-org-id: ${{ secrets.ORG_ID}} #Required
-          vercel-project-id: ${{ secrets.PROJECT_ID}} #Required
       - name: SonarCloud Scan
         uses: sonarsource/sonarcloud-github-action@master
         env:
