@@ -1,4 +1,4 @@
-import app from './app';
+import app from './src/app';
 
 app.set('port', process.env.API_PORT || 3000);
 app.listen(app.get('port'), () => {
