@@ -1,7 +1,7 @@
 {
   "name": "space-x_api",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "src/server.js",
   "type": "module",
   "scripts": {
     "start": "node --experimental-specifier-resolution=node src/server.js",

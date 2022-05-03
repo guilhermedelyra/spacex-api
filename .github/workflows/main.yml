@@ -15,7 +15,7 @@ jobs:
           node-version: 17.x
       - run: yarn
       - run: yarn lint:js:fix
-      - run: yarn test
+      - run: yarn test --watchAll=false
       - uses: amondnet/vercel-action@v20 #deploy
         with:
           vercel-token: ${{ secrets.VERCEL_TOKEN }} # Required
