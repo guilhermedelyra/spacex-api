@@ -1,11 +1,11 @@
-import axios from 'axios';
-import {
+const axios = require('axios');
+const {
   LaunchBuilder,
   LaunchBuilderFromArray,
-} from '../services/LaunchBuilder';
-import { baseUrl } from '../utils';
+} = require('../services/LaunchBuilder');
+const { baseUrl } = require('../utils');
 
-export default class LaunchesController {
+class LaunchesController {
   static async latest(req, res, _next) {
     const { data } = await axios.get(`${baseUrl}/launches/latest`);
     const { launch } = await LaunchBuilder(data, false);
@@ -30,3 +30,5 @@ export default class LaunchesController {
     return _next(res.json(launches));
   }
 }
+
+module.exports = LaunchesController;

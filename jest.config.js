@@ -2,7 +2,7 @@
 /*
  * For a detailed explanation regarding each configuration property, visit: */
 
-export default {
+module.exports = {
   clearMocks: true,
   testMatch: ['**/__tests__/**/*.test.js'],
   collectCoverage: true,

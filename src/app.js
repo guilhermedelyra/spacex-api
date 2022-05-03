@@ -1,8 +1,8 @@
-import 'express-async-errors';
-import express from 'express';
-import morgan from 'morgan';
-import cors from 'cors';
-import routes from './routes';
+require('express-async-errors');
+const express = require('express');
+const morgan = require('morgan');
+const cors = require('cors');
+const routes = require('./routes');
 
 class App {
   constructor() {
@@ -27,4 +27,4 @@ class App {
   }
 }
 
-export default new App().express;
+module.exports = new App().express;

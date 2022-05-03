@@ -1,5 +1,5 @@
-import express from 'express';
-import LaunchesController from '../controller/LaunchesController';
+const express = require('express');
+const LaunchesController = require('../controller/LaunchesController');
 
 const router = new express.Router();
 
@@ -9,4 +9,4 @@ router.get('/latest', LaunchesController.latest);
 router.get('/past', LaunchesController.past);
 router.get('/upcoming', LaunchesController.upcoming);
 
-export default router;
+module.exports = router;

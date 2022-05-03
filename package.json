@@ -2,14 +2,13 @@
   "name": "space-x_api",
   "version": "1.0.0",
   "main": "index.js",
-  "type": "module",
   "engines": {
     "node": ">=14.x"
   },
   "scripts": {
-    "start": "node --experimental-specifier-resolution=node index.js",
-    "dev": "nodemon --experimental-specifier-resolution=node index.js",
-    "test": "NODE_OPTIONS=--experimental-vm-modules NODE_ENV=test jest --watchAll",
+    "start": "node index.js",
+    "dev": "nodemon index.js",
+    "test": "NODE_ENV=test jest --watchAll",
     "coverage": "rm -rf coverage/ node_modules/.cache/ && NODE_ENV=test jest --collect-coverage",
     "lint:js": "eslint . --ext .js,.jsx",
     "lint:js:fix": "npm run lint:js -- --fix"

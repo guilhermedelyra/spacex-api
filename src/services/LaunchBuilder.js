@@ -1,6 +1,6 @@
-import axios from 'axios';
-import ytdl from 'ytdl-core';
-import { baseUrl, wikiUrl, youtubeUrl } from '../utils';
+const axios = require('axios');
+const ytdl = require('ytdl-core');
+const { baseUrl, wikiUrl, youtubeUrl } = require('../utils');
 
 async function _getImage(data) {
   const flickr = data.links.flickr.original;
@@ -106,12 +106,12 @@ function _hasNextAndIsFirst(hasNext, index) {
   return hasNext && index === 0;
 }
 
-export async function LaunchBuilder(data, isNext) {
+async function LaunchBuilder(data, isNext) {
   const launch = await _makeResponse(data, isNext);
   return { launch };
 }
 
-export async function LaunchBuilderFromArray(launches, hasNext = false) {
+async function LaunchBuilderFromArray(launches, hasNext = false) {
   const result = await Promise.all(
     launches.map(async (data, index) => {
       return LaunchBuilder(data, _hasNextAndIsFirst(hasNext, index));
@@ -119,3 +119,5 @@ export async function LaunchBuilderFromArray(launches, hasNext = false) {
   );
   return result;
 }
+
+module.exports = { LaunchBuilder, LaunchBuilderFromArray };

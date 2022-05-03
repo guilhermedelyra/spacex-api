@@ -1,8 +1,8 @@
-import express from 'express';
-import launchesRoutes from './routes/launchesRoutes';
+const express = require('express');
+const launchesRoutes = require('./routes/launchesRouter');
 
 const routes = new express.Router();
 
 routes.use('/launches', launchesRoutes);
 
-export default routes;
+module.exports = routes;
