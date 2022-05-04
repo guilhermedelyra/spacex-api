@@ -76,8 +76,13 @@ async function _getNext(isNext) {
   return { next: isNext };
 }
 
+async function _getId(data) {
+  return { id: data.id };
+}
+
 async function _makeResponse(data, isNext) {
   return Promise.all([
+    _getId(data),
     _getImage(data),
     _getLaunchDate(data),
     _getTitle(data),
@@ -86,20 +91,9 @@ async function _makeResponse(data, isNext) {
     _getUpcoming(data),
     _getDetails(data),
     _getNext(isNext),
-  ]).then(
-    ([image, launchDate, title, number, location, upcoming, details, next]) => {
-      return {
-        ...image,
-        ...launchDate,
-        ...title,
-        ...number,
-        ...location,
-        ...upcoming,
-        ...details,
-        ...next,
-      };
-    }
-  );
+  ]).then((result) => {
+    return Object.assign(...result);
+  });
 }
 
 function _hasNextAndIsFirst(hasNext, index) {
