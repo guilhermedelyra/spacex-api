@@ -20,6 +20,17 @@ class App {
       console.err(error);
       next(res.sendStatus(500));
     });
+    this.express.use((req, res, next) => {
+      res.header(
+        'Access-Control-Allow-Origin',
+        'https://spacex-app-lovat.vercel.app'
+      );
+      res.header(
+        'Access-Control-Allow-Headers',
+        'Origin, X-Requested-With, Content-Type, Accept'
+      );
+      next();
+    });
   }
 
   routes() {
