@@ -21,7 +21,7 @@ class LaunchesController {
   static async past(req, res, _next) {
     const { data } = await axios.get(`${baseUrl}/launches/past`);
     const launches = await LaunchBuilderFromArray(data, false);
-    return _next(res.json(launches));
+    return _next(res.json(launches.reverse()));
   }
 
   static async upcoming(req, res, _next) {
