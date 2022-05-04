@@ -80,6 +80,9 @@ async function _getId(data) {
   return { id: data.id };
 }
 
+async function _getYoutubeId(data) {
+  return { youtube_id: data.links.youtube_id };
+}
 async function _makeResponse(data, isNext) {
   return Promise.all([
     _getId(data),
@@ -91,6 +94,7 @@ async function _makeResponse(data, isNext) {
     _getUpcoming(data),
     _getDetails(data),
     _getNext(isNext),
+    _getYoutubeId(data),
   ]).then((result) => {
     return Object.assign(...result);
   });
