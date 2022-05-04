@@ -56,7 +56,7 @@ async function _getDetails(data) {
     return { details };
   }
 
-  const wikipediaId = data.links.wikipedia?.split('/').at(-1);
+  const wikipediaId = data.links.wikipedia?.split('/').pop();
   if (wikipediaId) {
     const wiki = await axios.get(wikiUrl(wikipediaId));
     const { extract } = wiki.data;
@@ -104,7 +104,7 @@ async function LaunchBuilder(data, isNext) {
   return _makeResponse(data, isNext);
 }
 
-async function LaunchBuilderFromArray(launches, hasNext = false) {
+async function LaunchBuilderFromArray(launches, hasNext) {
   const result = await Promise.all(
     launches.map(async (data, index) => {
       return LaunchBuilder(data, _hasNextAndIsFirst(hasNext, index));
