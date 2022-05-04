@@ -8,13 +8,13 @@ const { baseUrl } = require('../utils');
 class LaunchesController {
   static async latest(req, res, _next) {
     const { data } = await axios.get(`${baseUrl}/launches/latest`);
-    const { launch } = await LaunchBuilder(data, false);
+    const launch = await LaunchBuilder(data, false);
     return _next(res.json({ ...launch }));
   }
 
   static async next(req, res, _next) {
     const { data } = await axios.get(`${baseUrl}/launches/next`);
-    const { launch } = await LaunchBuilder(data, true);
+    const launch = await LaunchBuilder(data, true);
     return _next(res.json({ ...launch }));
   }
 

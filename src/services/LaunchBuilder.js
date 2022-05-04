@@ -107,8 +107,7 @@ function _hasNextAndIsFirst(hasNext, index) {
 }
 
 async function LaunchBuilder(data, isNext) {
-  const launch = await _makeResponse(data, isNext);
-  return { launch };
+  return _makeResponse(data, isNext);
 }
 
 async function LaunchBuilderFromArray(launches, hasNext = false) {
